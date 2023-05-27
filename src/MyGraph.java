@@ -49,8 +49,9 @@ public class MyGraph<V>{
         return false;
     }
 
-    public List<Vertex> getNeighbours(Vertex vertex){
-        return null;
+    public List<Vertex<V>> getNeighbours(V key){ // returning neighbours of the particular vertex
+        Vertex<V> vertex = vertices.get(key);
+        return vertex.getNeighbours();
     }
 
     public void BFS(Vertex start){
