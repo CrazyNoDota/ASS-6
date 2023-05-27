@@ -1,21 +1,23 @@
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class MyGraph<V>{
-    private Map<Vertex<V>, List<Vertex<V>>> adjacencyList;
+    private ArrayList<Vertex> vertices;
 
     public MyGraph(){
-        adjacencyList = new HashMap<>(); // initializing hashmap
+        vertices = new ArrayList<Vertex>(); // initializing hashmap
     }
 
     public void addVertex(Vertex<V> vertex){ // creating a new pair vertex and edges it is connected
-        adjacencyList.put(vertex, new ArrayList<>());
+        vertices.add(vertex);
     }
 
-    public void addEdge(){
-
+    public void addEdge(Vertex<V> source, Vertex<V> destination, double weight){
+        for(Vertex vertex: vertices){
+            if(vertex.equals(source)){
+                vertex.addAdjacentVertex(destination, weight);
+            }
+        }
     }
 
     public void printGraph(){
