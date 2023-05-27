@@ -1,16 +1,17 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MyGraph <Vertex>{
-    private Map<Vertex, List<Vertex>> list;
+public class MyGraph<V>{
+    private Map<Vertex<V>, List<Vertex<V>>> adjacencyList;
 
     public MyGraph(){
-        list = new HashMap<>();
+        adjacencyList = new HashMap<>(); // initializing hashmap
     }
 
-    public void addVertex(Vertex vertex){
-
+    public void addVertex(Vertex<V> vertex){ // creating a new pair vertex and edges it is connected
+        adjacencyList.put(vertex, new ArrayList<>());
     }
 
     public void addEdge(){
