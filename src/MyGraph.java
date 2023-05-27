@@ -40,7 +40,12 @@ public class MyGraph<V>{
         destination.removeAdjacentVertex(source);
     }
 
-    public boolean hasEdge(){
+    public boolean hasEdge(V sourceKey, V destinationKey){
+        Vertex<V> source = vertices.get(sourceKey);
+        Vertex<V> destination = vertices.get(destinationKey);
+        if(source.hasEdge(destination) || destination.hasEdge(source)){ // checking the edge for both
+            return true;
+        }
         return false;
     }
 

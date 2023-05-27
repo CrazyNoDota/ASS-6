@@ -29,4 +29,12 @@ public class Vertex<V>{
         }
         return neighbours;
     }
+
+    public boolean hasEdge(Vertex<V> destination){
+        if(adjacentVertices.containsKey(destination)){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
