@@ -37,4 +37,10 @@ public class Vertex<V>{
             return false;
         }
     }
+
+
+
+    public double getEdgeWeight(Vertex<V> neighbor) {
+        return adjacentVertices.get(neighbor);
+    }
 }
