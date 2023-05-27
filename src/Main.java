@@ -14,6 +14,8 @@ public class Main {
         graph.addEdge(4,1,40);
         graph.addEdge(3,2,50);
         graph.addEdge(3,1,40);
+
+        graph.removeEdge(1,4);
         graph.printGraph();
     }
 }

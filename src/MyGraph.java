@@ -33,7 +33,12 @@ public class MyGraph<V>{
 
     }
 
-    public void removeEdge(){}
+    public void removeEdge(V sourceKey, V destinationKey){
+        Vertex<V> source = vertices.get(sourceKey);
+        Vertex<V> destination = vertices.get(destinationKey);
+        source.removeAdjacentVertex(destination);
+        destination.removeAdjacentVertex(source);
+    }
 
     public boolean hasEdge(){
         return false;
