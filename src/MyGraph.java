@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class MyGraph<V>{
     private Map<V, Vertex<V>> vertices; // contains the key and the Vertex, the edges are stored in Vertex class
@@ -54,7 +51,24 @@ public class MyGraph<V>{
         return vertex.getNeighbours();
     }
 
-    public void BFS(Vertex start){
+    public void BFS(V startKey){
+        Vertex<V> start = vertices.get(startKey);
+        Map<Vertex<V>, Boolean> visited = new HashMap<>(); // here I save node that I already visited
+        Queue<Vertex<V>> q = new LinkedList<>(); // here I add nodes that need to be visited
+
+        q.add(start); // starting node
+        while(!q.isEmpty()){ // while my queue is not empty the algo works
+            Vertex<V> current = q.poll(); // take the first in the queue
+            visited.put(current, true); // mark it as visited
+            System.out.print(current.getData() + " ");
+            ArrayList<Vertex<V>> neighbours = (ArrayList<Vertex<V>>) current.getNeighbours(); // get all the nodes that are neighbours
+            for(Vertex<V> vertex: neighbours){
+                if(!visited.containsKey(vertex)){ // if one of neighbour is not visited, yet I add him to the queue
+                    q.add(vertex);
+                    visited.put(vertex, true);
+                }
+            }
+        }
 
     }
 
